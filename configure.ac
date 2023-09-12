@@ -1,9 +1,10 @@
-AC_INIT([ArduinoCore-avr],[1.8.6],[])
+AC_INIT([ArduinoCore-avr],[1.8.6],[kafe@kafe.dev])
 
 AC_CONFIG_SRCDIR([cores/arduino/Arduino.h])
 AC_CONFIG_AUX_DIR([build-aux])
 
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign no-exeext])
+AM_SILENT_RULES([yes])
 
 cross_compiling=yes
 AC_PROG_MAKE_SET
@@ -14,8 +15,8 @@ AC_PROG_CXX([avr-g++])
 
 AC_CHECK_TOOL(AS, avr-as, avr-as)
 AM_PROG_AS([avr-as])
-AC_CHECK_TOOL(RANLIB, avr-ranlib, avr-ranlib)
-AC_CHECK_TOOL(AR, avr-ar, avr-ar)
+AC_CHECK_TOOL(RANLIB, avr-gcc-ranlib, avr-ranlib)
+AC_CHECK_TOOL(AR, avr-gcc-ar, avr-ar)
 AC_CHECK_TOOL(OBJCOPY, avr-objcopy, avr-objcopy)
 AC_CHECK_TOOL(SIZE, avr-size, avr-size)
 
