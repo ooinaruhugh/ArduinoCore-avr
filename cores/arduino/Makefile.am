@@ -5,7 +5,8 @@ AM_LDFLAGS =
 
 lib_LIBRARIES = \
     libcore-arduino-avr-uno.a \
-    libcore-arduino-avr-mega2560.a
+    libcore-arduino-avr-mega2560.a \
+    libcore-arduino-avr-micro.a
 
 include_HEADERS = \
     Arduino.h \
@@ -90,3 +91,21 @@ libcore_arduino_avr_mega2560_a_CFLAGS= \
 libcore_arduino_avr_mega2560_a_CXXFLAGS= \
     $(AM_CXXFLAGS) \
     $(AVR_MEGA2560_COMMON_FLAGS)
+
+libcore_arduino_avr_micro_a_SOURCES = $(COMMON_SRCS)
+AVR_MICRO_COMMON_FLAGS = \
+    -mmcu=atmega32u4 \
+    -DF_CPU=16000000L \
+    -DARDUINO=@RUNTIME_IDE_VERSION@ \
+    -DARDUINO_AVR_MICRO \
+    -DARDUINO_ARCH_AVR \
+    -DUSB_VID=0x2341 -DUSB_PID=0x8037 -DUSB_MANUFACTURER=Unknown "-DUSB_PRODUCT=\"Arduino Micro\"" \
+    -I$(srcdir)/../../variants/micro 
+
+libcore_arduino_avr_micro_a_CFLAGS= \
+    $(AM_CFLAGS) \
+    $(AVR_MICRO_COMMON_FLAGS)
+
+libcore_arduino_avr_micro_a_CXXFLAGS= \
+    $(AM_CXXFLAGS) \
+    $(AVR_MICRO_COMMON_FLAGS)
