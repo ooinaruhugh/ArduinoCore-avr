@@ -1,4 +1,9 @@
 AC_INIT([ArduinoCore-avr],[1.8.6],[kafe@kafe.dev])
+AC_DEFINE([RUNTIME_IDE_VERSION],[10806],[
+   the version number of the Arduino core as a number (this uses two digits per version number
+   component, and removes the points and leading zeroes, so 1.8.6 becomes `01.08.06` which becomes
+   `runtime.ide.version=10806`).
+])
 
 AC_CONFIG_SRCDIR([cores/arduino/Arduino.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -63,6 +68,7 @@ esac
 
 AX_CXX_COMPILE_STDCXX_11
 
-AC_CONFIG_FILES([Makefile cores/arduino/Makefile])
+AC_CONFIG_FILES([Makefile cores/arduino/Makefile libraries/EEPROM/src/Makefile])
+AC_SUBST([RUNTIME_IDE_VERSION])
 
 AC_OUTPUT
