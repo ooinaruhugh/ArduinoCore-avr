@@ -1,4 +1,4 @@
-SUBDIRS = cores/arduino libraries/EEPROM # libraries/HID libraries/SoftwareSerial libraries/SPI libraries/Wire
+SUBDIRS = cores/arduino # libraries/EEPROM # libraries/HID libraries/SoftwareSerial libraries/SPI libraries/Wire
 # dist_doc_DATA = README.md
 
 AM_CFLAGS = -c -g -Os -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects
