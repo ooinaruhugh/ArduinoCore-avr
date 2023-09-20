@@ -4,9 +4,9 @@ ARFLAGS = rcs
 AM_LDFLAGS =
 
 lib_LIBRARIES = \
-    libcore-arduino-avr-uno.a \
-    libcore-arduino-avr-mega2560.a \
-    libcore-arduino-avr-micro.a
+    libcore-uno.a \
+    libcore-mega2560.a \
+    libcore-micro.a
 
 include_HEADERS = \
     Arduino.h \
@@ -56,7 +56,7 @@ COMMON_SRCS = \
     wiring_pulse.c \
     wiring_shift.c
 
-libcore_arduino_avr_uno_a_SOURCES = $(COMMON_SRCS)
+libcore__uno_a_SOURCES = $(COMMON_SRCS)
 AVR_UNO_COMMON_FLAGS = \
     -mmcu=atmega328p \
     -DF_CPU=16000000L \
@@ -66,15 +66,15 @@ AVR_UNO_COMMON_FLAGS = \
     -DVARIANT_STANDARD \
     -I$(srcdir)/../../variants/standard 
 
-libcore_arduino_avr_uno_a_CFLAGS= \
+libcore_uno_a_CFLAGS= \
     $(AM_CFLAGS) \
     $(AVR_UNO_COMMON_FLAGS)
 
-libcore_arduino_avr_uno_a_CXXFLAGS= \
+libcore_uno_a_CXXFLAGS= \
     $(AM_CXXFLAGS) \
     $(AVR_UNO_COMMON_FLAGS)
 
-libcore_arduino_avr_mega2560_a_SOURCES = $(COMMON_SRCS)
+libcore_mega2560_a_SOURCES = $(COMMON_SRCS)
 AVR_MEGA2560_COMMON_FLAGS= \
     -mmcu=atmega2560 \
     -DF_CPU=16000000L \
@@ -84,15 +84,15 @@ AVR_MEGA2560_COMMON_FLAGS= \
     -DVARIANT_MEGA \
     -I$(srcdir)/../../variants/mega 
 
-libcore_arduino_avr_mega2560_a_CFLAGS= \
+libcore_mega2560_a_CFLAGS= \
     $(AM_CFLAGS) \
     $(AVR_MEGA2560_COMMON_FLAGS)
 
-libcore_arduino_avr_mega2560_a_CXXFLAGS= \
+libcore_mega2560_a_CXXFLAGS= \
     $(AM_CXXFLAGS) \
     $(AVR_MEGA2560_COMMON_FLAGS)
 
-libcore_arduino_avr_micro_a_SOURCES = $(COMMON_SRCS)
+libcore_micro_a_SOURCES = $(COMMON_SRCS)
 AVR_MICRO_COMMON_FLAGS = \
     -mmcu=atmega32u4 \
     -DF_CPU=16000000L \
@@ -102,10 +102,10 @@ AVR_MICRO_COMMON_FLAGS = \
     -DUSB_VID=0x2341 -DUSB_PID=0x8037 -DUSB_MANUFACTURER=Unknown "-DUSB_PRODUCT=\"Arduino Micro\"" \
     -I$(srcdir)/../../variants/micro 
 
-libcore_arduino_avr_micro_a_CFLAGS= \
+libcore_micro_a_CFLAGS= \
     $(AM_CFLAGS) \
     $(AVR_MICRO_COMMON_FLAGS)
 
-libcore_arduino_avr_micro_a_CXXFLAGS= \
+libcore_micro_a_CXXFLAGS= \
     $(AM_CXXFLAGS) \
     $(AVR_MICRO_COMMON_FLAGS)
