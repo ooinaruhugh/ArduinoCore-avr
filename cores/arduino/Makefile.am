@@ -57,7 +57,7 @@ COMMON_SRCS = \
     wiring_shift.c
 
 libcore_uno_a_SOURCES = $(COMMON_SRCS)
-AVR_UNO_COMMON_FLAGS = \
+libcore_uno_a_CPPFLAGS = \
     -mmcu=atmega328p \
     -DF_CPU=16000000L \
     -DARDUINO=@RUNTIME_IDE_VERSION@ \
@@ -66,16 +66,8 @@ AVR_UNO_COMMON_FLAGS = \
     -DVARIANT_STANDARD \
     -I$(srcdir)/../../variants/standard 
 
-libcore_uno_a_CFLAGS= \
-    $(AM_CFLAGS) \
-    $(AVR_UNO_COMMON_FLAGS)
-
-libcore_uno_a_CXXFLAGS= \
-    $(AM_CXXFLAGS) \
-    $(AVR_UNO_COMMON_FLAGS)
-
-libcore_mega2560_a_SOURCES = $(COMMON_SRCS)
-AVR_MEGA2560_COMMON_FLAGS= \
+libcore_mega2560_a_SOURCES=$(COMMON_SRCS)
+libcore_mega2560_a_CPPFLAGS=\
     -mmcu=atmega2560 \
     -DF_CPU=16000000L \
     -DARDUINO=@RUNTIME_IDE_VERSION@ \
@@ -84,28 +76,12 @@ AVR_MEGA2560_COMMON_FLAGS= \
     -DVARIANT_MEGA \
     -I$(srcdir)/../../variants/mega 
 
-libcore_mega2560_a_CFLAGS= \
-    $(AM_CFLAGS) \
-    $(AVR_MEGA2560_COMMON_FLAGS)
-
-libcore_mega2560_a_CXXFLAGS= \
-    $(AM_CXXFLAGS) \
-    $(AVR_MEGA2560_COMMON_FLAGS)
-
 libcore_micro_a_SOURCES = $(COMMON_SRCS)
-AVR_MICRO_COMMON_FLAGS = \
+libcore_micro_a_CPPFLAGS = \
     -mmcu=atmega32u4 \
     -DF_CPU=16000000L \
     -DARDUINO=@RUNTIME_IDE_VERSION@ \
     -DARDUINO_AVR_MICRO \
     -DARDUINO_ARCH_AVR \
-    -DUSB_VID=0x2341 -DUSB_PID=0x8037 -DUSB_MANUFACTURER=Unknown "-DUSB_PRODUCT=\"Arduino Micro\"" \
+    -DUSB_VID=0x2341 -DUSB_PID=0x8037 "-DUSB_PRODUCT=\"Arduino Micro\"" \
     -I$(srcdir)/../../variants/micro 
-
-libcore_micro_a_CFLAGS= \
-    $(AM_CFLAGS) \
-    $(AVR_MICRO_COMMON_FLAGS)
-
-libcore_micro_a_CXXFLAGS= \
-    $(AM_CXXFLAGS) \
-    $(AVR_MICRO_COMMON_FLAGS)
