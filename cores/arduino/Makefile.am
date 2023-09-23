@@ -56,7 +56,7 @@ COMMON_SRCS = \
     wiring_pulse.c \
     wiring_shift.c
 
-libcore__uno_a_SOURCES = $(COMMON_SRCS)
+libcore_uno_a_SOURCES = $(COMMON_SRCS)
 AVR_UNO_COMMON_FLAGS = \
     -mmcu=atmega328p \
     -DF_CPU=16000000L \
