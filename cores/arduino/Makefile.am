@@ -7,7 +7,7 @@ lib_LIBRARIES = \
     libcore-uno.a \
     libcore-mega2560.a \
     libcore-micro.a \
-    libcore-nano-atmega328.a
+    libcore-nano.atmega328.a
 
 include_HEADERS = \
     Arduino.h \
