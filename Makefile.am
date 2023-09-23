@@ -1,4 +1,4 @@
-SUBDIRS = cores/arduino # libraries/EEPROM # libraries/HID libraries/SoftwareSerial libraries/SPI libraries/Wire
+SUBDIRS = cores/arduino # libraries/HID # libraries/SoftwareSerial libraries/SPI libraries/Wire
 # dist_doc_DATA = README.md
 
 AM_CFLAGS = -c -g -Os -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects
@@ -7,7 +7,7 @@ ARFLAGS = rcs
 ELF2EEP = $(OBJCOPY) -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
 ELF2HEX = $(OBJCOPY) -O ihex -R .eeprom
 
-include_HEADERS = variants/pins_arduino.h
+include_HEADERS = variants/pins_arduino.h libraries/EEPROM/src/EEPROM.h
 
 nobase_include_HEADERS = \
     variants/circuitplay32u4/pins_arduino.h \
