@@ -6,7 +6,8 @@ AM_LDFLAGS =
 lib_LIBRARIES = \
     libcore-uno.a \
     libcore-mega2560.a \
-    libcore-micro.a
+    libcore-micro.a \
+    libcore-nano-atmega328.a
 
 include_HEADERS = \
     Arduino.h \
@@ -83,5 +84,16 @@ libcore_micro_a_CPPFLAGS = \
     -DARDUINO=@RUNTIME_IDE_VERSION@ \
     -DARDUINO_AVR_MICRO \
     -DARDUINO_ARCH_AVR \
+    -DVARIANT_MICRO \
     -DUSB_VID=0x2341 -DUSB_PID=0x8037 "-DUSB_PRODUCT=\"Arduino Micro\"" \
     -I$(srcdir)/../../variants/micro 
+
+libcore_nano_atmega328_a_SOURCES = $(COMMON_SRCS)
+libcore_nano_atmega328_a_CPPFLAGS = \
+    -mmcu=atmega328p \
+    -DF_CPU=16000000L \
+    -DARDUINO=@RUNTIME_IDE_VERSION@ \
+    -DARDUINO_AVR_NANO \
+    -DARDUINO_ARCH_AVR \
+    -DVARIANT_EIGHTANALOGINPUTS \
+    -I$(srcdir)/../../variants/eightanaloginputs 
