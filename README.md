@@ -5,7 +5,6 @@ This repository contains modified source code and configuration files of the Ard
 
 This repo was modified to allow for precompiling the core library for several platforms.
 For this, some autotools files and one header were added.
-I also added
 
 ## Instructions
 I assume that GCC targeting avr is already installed. In that case, make sure 
